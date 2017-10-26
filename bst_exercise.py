@@ -56,6 +56,17 @@ class TreeNode:
         if self.hasRightChild():
             self.rightChild.parent = self
 
+    def __iter__(self):
+        if self:
+            if self.hasLeftChild():
+                for elem in self.leftChild:
+                    yield elem
+            yield self.key
+            if self.hasRightChild():
+                for elem in self.rightChild:
+                    yield elem
+
+
 class BinarySearchTree:
 
     def __init__(self):
@@ -210,14 +221,11 @@ mytree[4]="blue"
 mytree[6]="yellow"
 mytree[2]="bee"
 
-mytree.delete(6)
-mytree[6] = 'Baal'
-mytree[6] = 'Nico'
+# mytree.delete(6)
+# mytree[6] = 'Baal'
+# mytree[6] = 'Nico'
 
-if 5 in mytree:
-    print("Yes it is in BST")
-else:
-    print("Not found in BST")
-
-print(mytree[6])
-print(mytree[2])
+# if 5 in mytree:
+#     print("Yes it is in BST")
+# else:
+#     print("Not found in BST")
